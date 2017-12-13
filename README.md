@@ -1,1 +1,1 @@
-"# StackOverflow-Chat-Scraper" 
+# StackOverflow-Chat-Scraper

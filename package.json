@@ -1,0 +1,41 @@
+{
+  "name": "stackoverflow-chat-scraper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kamilczak020/StackOverflow-Chat-Scraper.git"
+  },
+  "author": "Kamil Solecki",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kamilczak020/StackOverflow-Chat-Scraper/issues"
+  },
+  "homepage": "https://github.com/Kamilczak020/StackOverflow-Chat-Scraper#readme",
+  "devDependencies": {
+    "@types/glob": "^5.0.34",
+    "@types/node": "^8.5.0",
+    "@types/passport": "^0.4.1",
+    "@types/passport-http": "^0.3.3",
+    "@types/request": "^2.0.9",
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^3.2.3",
+    "ts-node": "^4.0.1",
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.2"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "glob": "^7.1.2",
+    "jsonschema": "^1.2.2",
+    "moment": "^2.19.4",
+    "passport": "^0.4.0",
+    "passport-http": "^0.3.0",
+    "pg-promise": "^7.3.2",
+    "request": "^2.83.0"
+  }
+}
