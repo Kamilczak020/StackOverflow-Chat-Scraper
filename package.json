@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/Kamilczak020/StackOverflow-Chat-Scraper#readme",
   "devDependencies": {
+    "@types/cheerio": "^0.22.6",
     "@types/glob": "^5.0.34",
+    "@types/later": "^1.2.4",
     "@types/node": "^8.5.0",
     "@types/passport": "^0.4.1",
     "@types/passport-http": "^0.3.3",
@@ -30,8 +32,10 @@
   },
   "dependencies": {
     "bluebird": "^3.5.1",
+    "cheerio": "^1.0.0-rc.2",
     "glob": "^7.1.2",
     "jsonschema": "^1.2.2",
+    "later": "^1.2.0",
     "moment": "^2.19.4",
     "passport": "^0.4.0",
     "passport-http": "^0.3.0",
