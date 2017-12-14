@@ -1,6 +1,7 @@
 # StackOverflow Chat Scraper
 
 This is a node.js server-side application, meant to be working alongside [StackOverflow Chat API](https://github.com/Kamilczak020/StackOverflow-Chat-API).
+
 It allows for easy scheduled scraping of the SO chat transcript, then automatically pushing the data to the database.
 
 It can run in two modes:
