@@ -1,0 +1,17 @@
+{
+    "id": "/ScheduleConfigSchema",
+    "type": "object",
+    "properties": {
+        "schedule": { 
+            "type": "string"
+        },
+        "timezone": {
+            "type": "string",
+            "enum": ["local", "utc"]
+        }
+    },
+    "required": [
+        "schedule",
+        "timezone"
+    ]
+}

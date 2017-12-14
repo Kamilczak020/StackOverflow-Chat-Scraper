@@ -5,9 +5,10 @@ import * as path from 'path';
 /**
  * By default, configs are located in root/config and schemas are located in root/validation/schemas.
  * If you were to change these, update below paths accordingly.
+ * Below paths are local to the script location.
  */
-const pathToConfigs = '/config';
-const pathToSchemas = path.join(__dirname, '/schemas');
+const pathToConfigs = '../../config';
+const pathToSchemas = './schemas';
 
 /**
  * Checks if configs are valid, by finding schemas for them and comparing the two.
@@ -27,12 +28,12 @@ export async function validateConfigs(): Promise<boolean> {
             const schema = require(pathToSchemas + '/' + schemas[schemaIndex]);
 
             const result = validate(config, schema);
-            if (!result) {
+            if (result === false) {
                 console.log(configName + ' does not match its\' schema.');
             }
             return result;
         }
-        console.log('Schema for ' + configName + ' was not found; Assuming correct.');
+        console.log('Schema for ' + configName + ' was not found; Assuming valid.');
         return true;
     })
     .reduce((stack, current) => stack && current);
@@ -40,11 +41,11 @@ export async function validateConfigs(): Promise<boolean> {
 
 /**
  * Gets the .json files' filenames given the directory.
- * @param cwd directory where to get the filenames from
+ * @param dir directory where to get the filenames from
  */
-async function getFilenames(cwd: string) {
+async function getFilenames(dir: string) {
     return new Promise<string[]>((resolve, reject) => {
-        glob('*.json', {cwd: cwd}, (err, filenames) => {
+        glob('*.json', {cwd: path.join(__dirname, dir)}, (err, filenames) => {
             if (err) {
                 return reject(err);
             }
@@ -71,3 +72,4 @@ function validate(config: JSON, schema: JSON): boolean {
     const res = jsonschema.validate(config, schema);
     return res.errors.length === 0;
 }
+

@@ -1,0 +1,8 @@
+{
+    "properties": {
+        "apikey": { "type": "string" }
+    },
+    "required": [
+        "apikey"
+    ]
+}
