@@ -1,0 +1,1 @@
+export { scrapeTranscript } from './transcriptScraper';
