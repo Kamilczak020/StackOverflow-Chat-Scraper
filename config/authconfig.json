@@ -1,9 +1,3 @@
-/**
-* This is an example config!
-* Change the below fields, so that they are correct for your API settings.
-* If you are not going to be using this program remotely, you can omit setting this up.
-**/
-
 {
     "apikey": "123456789"
 }
