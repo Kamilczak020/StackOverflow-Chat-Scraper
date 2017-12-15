@@ -1,0 +1,12 @@
+{
+    "properties": {
+        "mode": { 
+            "type": "string",            
+            "enum": ["local", "remote"]
+        }
+    },
+    "required": [
+        "mode"
+    ]
+}
+
