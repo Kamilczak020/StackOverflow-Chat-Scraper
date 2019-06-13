@@ -1,4 +1,5 @@
 import * as later from 'later';
+import * as moment from 'moment';
 import { validateConfigs } from './validation/configValidator';
 import { startLocal } from './local';
 import { startRemote } from './remote';
@@ -35,7 +36,8 @@ async function start(): Promise<void> {
 
     // We already made sure that either local or remote is always present.
     if (mode === 'local') {
-        startLocal();
+        const startDate = moment('2010-10-15', 'YYYY-MM-DD');
+        startLocal(startDate);
     } else {
         startRemote();
     }

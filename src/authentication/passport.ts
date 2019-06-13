@@ -1,6 +1,6 @@
 import * as Passport from 'passport';
 import { DigestStrategy } from 'passport-http';
-const LocalAPIKeyStrategy = require("passport-localapikey-update").Strategy;
+const LocalAPIKeyStrategy = require('passport-localapikey-update').Strategy;
 
 // Import our authentication config file
 const authConfig = require('../../configs/authconfig.json');
@@ -18,7 +18,7 @@ class Authenticate {
                     return done(null, false);
                 }
                 return done(null, apikey);
-            }
+            },
         ));
     }
 }

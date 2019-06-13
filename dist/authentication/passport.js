@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const Passport = require("passport");
-const LocalAPIKeyStrategy = require("passport-localapikey-update").Strategy;
+const LocalAPIKeyStrategy = require('passport-localapikey-update').Strategy;
 // Import our authentication config file
 const authConfig = require('../../configs/authconfig.json');
 class Authenticate {

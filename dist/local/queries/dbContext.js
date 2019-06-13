@@ -5,7 +5,7 @@ const pgPromise = require("pg-promise");
 class DatabaseContext {
     constructor() {
         // Init & connection options
-        const connectionJSON = require('../../configs/dbconfig.json');
+        const connectionJSON = require('../../../config/dbconfig.json');
         const connectionOptions = connectionJSON;
         const initOptions = {
             promiseLib: promise,

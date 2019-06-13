@@ -34,7 +34,7 @@ export function scrapeTranscript(room_id: number, date: moment.Moment): Promise<
             // Each monologue block is a group of messages by one user. It contains user info and message objects.
             monologueElements.each((monologueIndex, monologueElement) => {
                 const user_id = getUserId(monologueElement, $);
-                const username = $(monologueElement).find('div.username').children('a').attr('title');
+                const username = getUsername(monologueElement, $);
                 const messageElements = $(monologueElement).find('div.message');
 
                 // Each single message contains *only* message-specific information.
@@ -72,8 +72,23 @@ export function scrapeTranscript(room_id: number, date: moment.Moment): Promise<
 // Extracts user id from classname
 function getUserId(monologueElement: CheerioElement, $: CheerioStatic): number {
     const userIdClass = $(monologueElement).attr('class');
-    const userId = userIdClass.split('-')[1];
-    return parseInt(userId, 10);
+    const userId = parseInt(userIdClass.split('-')[1], 10);
+
+    if (isNaN(userId)) {
+        return 69;
+    }
+    return userId;
+}
+
+function getUsername(monologueElement: CheerioElement, $: CheerioStatic): string {
+    const username = $(monologueElement).find('div.username').children('a');
+
+    if (username.attr('title') !== null && username.attr('title') !== '' &&
+        username.attr('title') !== undefined) {
+        return username.attr('title');
+    } else {
+        return 'Deleted user';
+    }
 }
 
 // Extracts message id from classname
@@ -88,10 +103,10 @@ function getMessageText(messageElement: CheerioElement, $: CheerioStatic) {
     const content = $(messageElement).children('div.content');
     
     // In case of onebox messages, return undefined.
-    if ($(content).children().is('div.onebox')) {
-        return undefined;
+    if ($(content).children().is('div.onebox') || $(content).children().is('div.room-mini')) {
+        return 'this was a onebox message. I dont handle these as I dont care. Cheerio.';
     } else {
-        return content.contents().text();
+        return content.contents().text().trim();
     }
 }
 
@@ -100,7 +115,12 @@ function getResponseId(messageElement: CheerioElement, $: CheerioStatic): number
     if ( $(messageElement).children().is('a.reply-info')) {
         const responseIdClass = $(messageElement).children('a.reply-info').attr('href');
         const responseId = responseIdClass.split('#')[1];
-        return parseInt(responseId, 10);
+        const parsed = parseInt(responseId, 10);
+        if (isNaN(parsed)) {
+            return null;
+        } 
+
+        return parsed;
     } else {
         return null;
     }

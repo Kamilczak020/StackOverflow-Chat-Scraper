@@ -8,6 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const moment = require("moment");
 const configValidator_1 = require("./validation/configValidator");
 const local_1 = require("./local");
 const remote_1 = require("./remote");
@@ -37,7 +38,8 @@ function start() {
         }
         // We already made sure that either local or remote is always present.
         if (mode === 'local') {
-            local_1.startLocal();
+            const startDate = moment('2010-10-15', 'YYYY-MM-DD');
+            local_1.startLocal(startDate);
         }
         else {
             remote_1.startRemote();
