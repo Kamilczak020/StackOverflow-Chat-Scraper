@@ -38,7 +38,7 @@
     "glob": "^7.1.2",
     "jsonschema": "^1.2.2",
     "later": "^1.2.0",
-    "moment": "^2.19.4",
+    "moment": "^2.29.2",
     "passport": "^0.4.0",
     "passport-http": "^0.3.0",
     "passport-localapikey-update": "^0.6.0",
