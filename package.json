@@ -25,7 +25,7 @@
     "@types/passport": "^0.4.1",
     "@types/passport-http": "^0.3.3",
     "@types/request": "^2.0.9",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-typescript": "^3.2.3",
     "ts-node": "^4.0.1",
     "tslint": "^5.8.0",
